@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~ *  Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+  ~ *  Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
+  ~ *  Last modified: 3/10/24, 4:11 AM
+  ~ *
+  ~ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+  ~ *  except in compliance with the License. You may obtain a copy of the License at
+  ~ *  http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+  ~ *   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  ~ *   either express or implied. See the License for the specific language governing permissions and
+  ~ *   limitations under the License.
+  ~ */
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0sp"
+            android:padding="0sp"
+            android:text="@string/welcome"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0sp"
+            android:gravity="start"
+            android:padding="0sp"
+            android:text="@string/app_name"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textSize="52sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/trust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0sp"
+            android:padding="0sp"
+            android:text="@string/your_trusted_text"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/heading"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/panel_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/panel_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:text="@string/txt_info" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="clip_horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="140dp"
+                    android:minWidth="100dp"
+                    android:layout_marginHorizontal="@dimen/padding"
+                    android:background="@drawable/test_bg"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:onClick="openTest"
+                    android:layout_alignParentStart="true">
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_test"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/maxPadding"
+                        android:background="@drawable/test_icon_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:text="@string/test"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="-8dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="140dp"
+                    android:minWidth="100dp"
+                    android:layout_marginHorizontal="@dimen/padding"
+                    android:background="@drawable/module_bg"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:onClick="openModulesActivity"
+                    android:layout_alignParentEnd="true">
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_module"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/maxPadding"
+                        android:background="@drawable/module_icon_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:text="@string/modules"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="-8dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="clip_horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="140dp"
+                    android:minWidth="100dp"
+                    android:layout_marginHorizontal="@dimen/padding"
+                    android:background="@drawable/setting_bg"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:onClick="openSettings"
+                    android:layout_alignParentStart="true">
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_setting"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/maxPadding"
+                        android:background="@drawable/setting_icon_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:text="@string/settings"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="-8dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="140dp"
+                    android:minWidth="100dp"
+                    android:layout_marginHorizontal="@dimen/padding"
+                    android:background="@drawable/about_bg"
+                    android:paddingTop="8dp"
+                    android:gravity="center"
+                    android:onClick="openAbout"
+                    android:layout_alignParentEnd="true">
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_about"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/maxPadding"
+                        android:background="@drawable/about_icon_bg"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:text="@string/about"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="-8dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="164dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/app_name"
+        android:onClick="aboutToast"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo" />
+
+
+</RelativeLayout>

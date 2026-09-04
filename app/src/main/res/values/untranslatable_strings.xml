@@ -1,0 +1,29 @@
+<!--
+  ~ /*
+  ~ *  Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+  ~ *  Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
+  ~ *  Last modified: 2/29/24, 1:59 PM
+  ~ *
+  ~ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+  ~ *  except in compliance with the License. You may obtain a copy of the License at
+  ~ *  http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+  ~ *   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  ~ *   either express or implied. See the License for the specific language governing permissions and
+  ~ *   limitations under the License.
+  ~ */
+  -->
+
+<resources>
+    <string name="app_name" translatable="false">URL Shield</string>
+
+    <string name="lnk_playStore" translatable="false">Play Store</string>
+    <string name="lnk_fDroid" translatable="false">F-Droid</string>
+
+
+    <string name="dd" translatable="false">%s:</string>
+
+    <string name="vivekajee" translatable="false">Amit &amp; Vivek</string>
+    <string name="contributors" translatable="false">Amit Sarakar &amp; Vivek Kumar</string>
+
+    <string name="sample_url" translatable="false"><![CDATA[http://www.google.com/?ref=referrer&foo=bar#tag]]></string>
+</resources>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~ *  Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+  ~ *  Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
+  ~ *  Last modified: 3/10/24, 2:49 AM
+  ~ *
+  ~ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+  ~ *  except in compliance with the License. You may obtain a copy of the License at
+  ~ *  http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+  ~ *   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  ~ *   either express or implied. See the License for the specific language governing permissions and
+  ~ *   limitations under the License.
+  ~ */
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/open_parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/open_both"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <Button
+            android:id="@+id/open"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@drawable/open_left"
+            android:minHeight="60dp"
+            android:padding="5dp"
+            android:text="@string/mOpen_open"
+            android:textColor="?android:attr/colorBackground"
+            android:textStyle="bold"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:id="@+id/browser_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/selected_browser_icon"
+            android:padding="@dimen/smallPadding"
+            android:src="@drawable/chrome" />
+
+        <ImageButton
+            android:id="@+id/open_with"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/open_right"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/arrow_down"
+            android:tint="?attr/colorAccent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_margin="4dp"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                tools:ignore="UselessParent">
+                <ImageButton
+                    android:id="@+id/ctabs"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/minPadding"
+                    android:contentDescription="@string/mOpen_tabsDesc"
+                    android:src="@drawable/ctabs_on" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                tools:ignore="UselessParent">
+                <ImageButton
+                    android:id="@+id/mode_incognito"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/minPadding"
+                    android:contentDescription="@string/mOpen_tabsDesc"
+                    android:src="@drawable/no_incognito" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                tools:ignore="UselessParent">
+                <ImageButton
+                    android:id="@+id/copyUrl"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/minPadding"
+                    android:contentDescription="@string/mOpen_tabsDesc"
+                    android:src="@drawable/copy" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_bg"
+                android:gravity="center"
+                tools:ignore="UselessParent">
+                <ImageButton
+                    android:id="@+id/share"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/smallPadding"
+                    android:contentDescription="@string/mOpen_tabsDesc"
+                    android:src="@drawable/share" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

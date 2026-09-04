@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~ *  Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+  ~ *  Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
+  ~ *  Last modified: 2/29/24, 1:59 PM
+  ~ *
+  ~ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+  ~ *  except in compliance with the License. You may obtain a copy of the License at
+  ~ *  http://www.apache.org/licenses/LICENS... Unless required by applicable law or agreed to in writing, software
+  ~ *   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  ~ *   either express or implied. See the License for the specific language governing permissions and
+  ~ *   limitations under the License.
+  ~ */
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/round_border"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/arrow_right"
+            android:drawableLeft="@drawable/arrow_right"
+            android:drawableTint="?attr/colorAccent"
+            android:gravity="center_vertical|start"
+            android:padding="5dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="2dp"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/move_up"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_up"
+            android:rotation="180"
+            android:src="@drawable/arrow_down"
+            android:tint="?attr/colorAccent" />
+
+        <ImageButton
+            android:id="@+id/move_down"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_down"
+            android:src="@drawable/arrow_down"
+            android:tint="?attr/colorAccent" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerInside" />
+
+        <ImageButton
+            android:id="@+id/decorations"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_decorations"
+            android:src="@drawable/t" />
+        <Switch
+            android:id="@+id/enable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/desc_enable" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp">
+
+                </FrameLayout>
+        </LinearLayout>
+
+</LinearLayout>
