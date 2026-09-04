@@ -25,6 +25,7 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -39,8 +40,20 @@ public interface StreamUtils {
      * GETs an url and returns the content as string
      */
     static String readFromUrl(String url) throws IOException {
+        return readFromUrl(url, null);
+    }
+
+    /**
+     * GETs an url with headers and returns the content as string
+     */
+    static String readFromUrl(String url, Map<String, String> headers) throws IOException {
         URLConnection connection = new URL(url).openConnection();
         connection.setConnectTimeout(CONNECT_TIMEOUT);
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                connection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+        }
         return inputStream2String(connection.getInputStream());
     }
 

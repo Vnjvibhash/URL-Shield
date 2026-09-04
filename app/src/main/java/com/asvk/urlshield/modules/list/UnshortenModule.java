@@ -15,6 +15,7 @@
 
 package com.asvk.urlshield.modules.list;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,22 +27,26 @@ import com.asvk.urlshield.dialogs.MainDialog;
 import com.asvk.urlshield.modules.AModuleConfig;
 import com.asvk.urlshield.modules.AModuleData;
 import com.asvk.urlshield.modules.AModuleDialog;
-import com.asvk.urlshield.modules.DescriptionConfig;
+import com.asvk.urlshield.modules.companions.UnshortenUtility;
 import com.asvk.urlshield.url.UrlData;
+import com.asvk.urlshield.utilities.generics.GenericPref;
 import com.asvk.urlshield.utilities.methods.AndroidUtils;
-import com.asvk.urlshield.utilities.methods.StreamUtils;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Objects;
 
 /**
  * Module to Unshort links by using https://unshorten.me/
- * Consider adding other services, or even allow custom
  */
 public class UnshortenModule extends AModuleData {
+
+    public static final String PREF = "unshorten_token";
+
+    static GenericPref.Str TOKEN_PREF(Context cntx) {
+        return new GenericPref.Str(PREF, "", cntx);
+    }
 
     @Override
     public String getId() {
@@ -60,7 +65,28 @@ public class UnshortenModule extends AModuleData {
 
     @Override
     public AModuleConfig getConfig(ModulesActivity cntx) {
-        return new DescriptionConfig(R.string.mUnshort_desc);
+        return new UnshortenConfig(cntx);
+    }
+}
+
+class UnshortenConfig extends AModuleConfig {
+
+    final GenericPref.Str token;
+
+    public UnshortenConfig(ModulesActivity cntx) {
+        super(cntx);
+        this.token = UnshortenModule.TOKEN_PREF(cntx);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.config_unshorten;
+    }
+
+    @Override
+    public void onInitialize(View views) {
+        views.<TextView>findViewById(R.id.label).setText(R.string.mUnshort_desc);
+        token.attachToEditText(views.findViewById(R.id.token));
     }
 }
 
@@ -68,11 +94,13 @@ class UnshortenDialog extends AModuleDialog {
 
     private Button unshort;
     private TextView info;
+    private final GenericPref.Str token;
 
     private Thread thread = null;
 
     public UnshortenDialog(MainDialog dialog) {
         super(dialog);
+        token = UnshortenModule.TOKEN_PREF(dialog);
     }
 
     @Override
@@ -120,26 +148,8 @@ class UnshortenDialog extends AModuleDialog {
     }
 
     private void _check() {
-
         try {
-            // get response
-            var response = new JSONObject(StreamUtils.readFromUrl("https://unshorten.me/json/" + getUrl()));
-            var resolved_url = response.getString("resolved_url");
-            var usage_count = Integer.parseInt(response.optString("usage_count", "0"));
-            var ref = new Object() { // reference object to allow using these inside lambdas
-                int usage_limit = 10; // documented but hardcoded
-                int remaining_calls = usage_limit - usage_count;
-            };
-            var error = response.optString("error", "(no reported error)");
-            var success = response.getBoolean("success");
-
-            // remaining_calls is not documented, but if it's present use it and replace the hardcoded usage_limit
-            try {
-                ref.remaining_calls = Integer.parseInt(response.optString("remaining_calls", ""));
-                ref.usage_limit = usage_count + ref.remaining_calls;
-            } catch (NumberFormatException ignore) {
-                // not present, ignore
-            }
+            UnshortenUtility.UnshortenResult result = UnshortenUtility.unshort(getUrl(), token.get());
 
             // exit if was canceled
             if (Thread.currentThread().isInterrupted()) {
@@ -147,19 +157,19 @@ class UnshortenDialog extends AModuleDialog {
                 return;
             }
 
-            if (!success) {
+            if (!result.success()) {
                 // server error, maybe too many checks
                 getActivity().runOnUiThread(() -> {
-                    info.setText(getActivity().getString(R.string.mUnshort_error, error));
+                    info.setText(getActivity().getString(R.string.mUnshort_error, result.error()));
                     AndroidUtils.setRoundedColor(R.color.warning, info);
                     // allow retries
                     unshort.setEnabled(true);
                 });
-            } else if (Objects.equals(resolved_url, getUrl())) {
+            } else if (Objects.equals(result.finalUrl(), getUrl())) {
                 // same, nothing to replace
                 getActivity().runOnUiThread(() -> {
-                    var pending = ref.remaining_calls <= ref.usage_limit / 2
-                            ? " (" + getActivity().getString(R.string.mUnshort_pending, ref.remaining_calls, ref.usage_limit) + ")"
+                    var pending = result.remainingCalls() <= result.usageLimit() / 2
+                            ? " (" + getActivity().getString(R.string.mUnshort_pending, result.remainingCalls(), result.usageLimit()) + ")"
                             : "";
                     info.setText(getActivity().getString(R.string.mUnshort_notFound) + pending);
                     AndroidUtils.clearRoundedColor(info);
@@ -167,10 +177,10 @@ class UnshortenDialog extends AModuleDialog {
             } else {
                 // correct, replace
                 getActivity().runOnUiThread(() -> {
-                    setUrl(new UrlData(resolved_url).dontTriggerOwn());
+                    setUrl(new UrlData(result.finalUrl()).dontTriggerOwn());
 
-                    var pending = ref.remaining_calls <= ref.usage_limit / 2
-                            ? " (" + getActivity().getString(R.string.mUnshort_pending, ref.remaining_calls, ref.usage_limit) + ")"
+                    var pending = result.remainingCalls() <= result.usageLimit() / 2
+                            ? " (" + getActivity().getString(R.string.mUnshort_pending, result.remainingCalls(), result.usageLimit()) + ")"
                             : "";
                     info.setText(getActivity().getString(R.string.mUnshort_ok) + pending);
                     AndroidUtils.setRoundedColor(R.color.good, info);
@@ -195,7 +205,5 @@ class UnshortenDialog extends AModuleDialog {
                 unshort.setEnabled(true);
             });
         }
-
     }
-
 }
