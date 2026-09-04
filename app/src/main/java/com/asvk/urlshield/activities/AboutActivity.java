@@ -1,6 +1,6 @@
 /*
  *
- *   Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+ *   Created by VnjVibhash on 2/21/24, 10:32 AM
  *   Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
  *   Last modified: 3/4/24, 5:41 PM
  *
@@ -38,8 +38,8 @@ public class AboutActivity extends Activity {
     // ------------------- links -------------------
 
     private static final List<Pair<Integer, String>> LINKS = List.of(
-            Pair.create(R.string.link_source, "https://github.com/amitskr/URL-Shield"),
-            Pair.create(R.string.link_privacy, "https://github.com/amitskr/URL-Shield/blob/master/docs/PRIVACY%20POLICY.md")
+            Pair.create(R.string.link_source, "https://github.com/vnjvibhash/URL-Shield"),
+            Pair.create(R.string.link_privacy, "https://github.com/vnjvibhash/URL-Shield/blob/master/docs/PRIVACY%20POLICY.md")
     );
 
     // ------------------- listeners -------------------

@@ -1,6 +1,6 @@
 /*
  *
- *   Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+ *   Created by VnjVibhash on 2/21/24, 10:32 AM
  *   Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
  *   Last modified: 2/29/24, 1:59 PM
  *
@@ -27,7 +27,7 @@ import java.util.regex.Matcher;
 /**
  * On Android 10 and under, optional groups may yield a "null" in the replacement output instead of an empty string.
  * Therefore, we just copy the implementation from a newer version of Android
- * https://github.com/amitskr/URL-Shield/issues/237
+ * https://github.com/vnjvibhash/URL-Shield/issues/237
  */
 public class RegexFix {
 

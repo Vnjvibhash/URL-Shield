@@ -1,6 +1,6 @@
 /*
  *
- *   Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+ *   Created by VnjVibhash on 2/21/24, 10:32 AM
  *   Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
  *   Last modified: 2/29/24, 1:59 PM
  *
@@ -103,7 +103,7 @@ class ChangeLogModuleDialog extends AModuleDialog {
         views.findViewById(R.id.viewChanges).setOnClickListener(v -> {
             // TODO: somehow redirect to the current locale
             // or, even better, load the changes and show inline (ask the user to get them)
-            setUrl("https://github.com/amitskr/URL-Shield/tree/master/app/src/main/play/release-notes");
+            setUrl("https://github.com/vnjvibhash/URL-Shield/tree/master/app/src/main/play/release-notes");
 
             // auto-dismiss
             dismiss.performClick();

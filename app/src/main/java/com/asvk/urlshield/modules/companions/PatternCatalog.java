@@ -1,6 +1,6 @@
 /*
  *
- *   Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+ *   Created by VnjVibhash on 2/21/24, 10:32 AM
  *   Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
  *   Last modified: 2/29/24, 1:59 PM
  *
@@ -65,7 +65,7 @@ public class PatternCatalog extends JsonCatalog {
                         .put("automatic", "true")
                 )
 
-                // privacy redirections samples (see https://github.com/amitskr/URL-Shield/discussions/122)
+                // privacy redirections samples (see https://github.com/vnjvibhash/URL-Shield/discussions/122)
                 .put("Reddit ➔ Teddit", new JSONObject()
                         .put("regex", "^https?://(?:[a-z0-9-]+\\.)*?reddit.com/(.*)")
                         .put("replacement", "https://teddit.net/$1")

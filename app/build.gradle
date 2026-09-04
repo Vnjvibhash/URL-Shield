@@ -35,7 +35,7 @@ android {
                 .filter { it != "" } // filter empty
                 .flatMap { it.split(';').stream() } // split multiple
                 .map { it.strip() } // trim
-                .filter { it != "TrianguloY" } // remove myself
+                .filter { it != "TrianguloY" && it != "amitskr" } // remove myself
                 .distinct().sorted() // keep distinct and sort them
                 .collect { it }.join(', ') // join with commas
         print "Extracted translators: $translators"

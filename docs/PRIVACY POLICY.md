@@ -1,8 +1,8 @@
 
 ## Introduction
-This privacy policy covers the use of the 'URLCheck' (https://github.com/amitskr/URL-Shield) Android application.
+This privacy policy covers the use of the 'URLCheck' (https://github.com/vnjvibhash/URL-Shield) Android application.
 
-It may not be applicable to other software produced or released by amitskr (https://github.com/amitskr).
+It may not be applicable to other software produced or released by vnjvibhash (https://github.com/vnjvibhash).
 
 URLCheck when running does not collect any statistics, personal information, or analytics from its users, other than Android operating system built in mechanisms that are present for all the mobile applications.
 

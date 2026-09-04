@@ -1,6 +1,6 @@
 /*
  *
- *   Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+ *   Created by VnjVibhash on 2/21/24, 10:32 AM
  *   Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
  *   Last modified: 2/29/24, 1:59 PM
  *
@@ -88,7 +88,7 @@ class PatternConfig extends AModuleConfig {
         views.<TextView>findViewById(R.id.user_content)
                 .setText(getActivity().getString(
                         R.string.mPttrn_userContent,
-                        "https://github.com/amitskr/URL-Shield/wiki/Custom-patterns"
+                        "https://github.com/vnjvibhash/URL-Shield/wiki/Custom-patterns"
                 ));
         RegexFix.attachSetting(views.findViewById(R.id.regex_fix));
     }

@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Header Banner -->
-<img src="https://github.com/amitskr/URL-Shield/assets/72401473/1a0bdfe5-8816-4e92-a92a-52097683e93d" alt="URL Shield Banner" width="100%">
+<img src="https://github.com/vnjvibhash/URL-Shield/assets/72401473/1a0bdfe5-8816-4e92-a92a-52097683e93d" alt="URL Shield Banner" width="100%">
 
 # URL Shield
 
@@ -78,7 +78,7 @@ URL Shield features a fully modular setup. You can enable, disable, and reorder 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/amitskr/URL-Shield.git
+   git clone https://github.com/vnjvibhash/URL-Shield.git
    cd URL-Shield
    ```
 

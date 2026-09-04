@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ /*
-  ~ *  Created by Amitskr & VnjVibhash on 2/21/24, 10:32 AM
+  ~ *  Created by VnjVibhash on 2/21/24, 10:32 AM
   ~ *  Copyright Ⓒ 2024. All rights reserved Ⓒ 2024 http://vivekajee.in/
   ~ *  Last modified: 3/10/24, 4:01 AM
   ~ *
@@ -16,7 +16,7 @@
 
 <resources>
 
-    <string name="translators">amitskr &amp; vivekajee</string>
+    <string name="translators">vnjvibhash &amp; vivekajee</string>
 
     <string name="locale">English</string>
     <!--
@@ -30,11 +30,11 @@
     <!--
         about
     -->
-    <string name="txt_about">"App created by Amit &amp; Vivek.
+    <string name="txt_about">"App created by VnjVibhash.
 
 Contributions: %s.
 Translations: %s."</string>
-    <string name="link_blog">"Amit &amp; Vivek's blog"</string>
+    <string name="link_blog">"VnjVibhash's blog"</string>
     <string name="link_changelog">Changelog</string>
     <string name="link_source">Source code</string>
     <string name="link_privacy">Privacy policy</string>
